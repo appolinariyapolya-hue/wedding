@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Анна & Михаил — приглашение</title>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;1,400&family=Forum&family=Marck+Script&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f0e6;--ink:#3b4032;--sage:#7c8a5c;--rose:#e8b9b4;--rose2:#d98f8b;--gold:#b59d6b;--card:#fbf7ef;
+--f1:'Forum',Georgia,serif;--f2:'Alegreya',Georgia,serif;--f3:'Marck Script',cursive;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#22261d;--ink:#efe8d8;--card:#2b3024;--sage:#a3b27c;--gold:#c9b27c}}
+:root[data-theme="dark"]{--bg:#22261d;--ink:#efe8d8;--card:#2b3024;--sage:#a3b27c;--gold:#c9b27c}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:20px/1.5 var(--f2);overflow-x:clip;text-align:center}
+body:not(.open){overflow:hidden;height:100vh}
+body:not(.open) .rise,body:not(.open) .arch path{animation-play-state:paused}
+section{position:relative;padding:70px 24px;max-width:640px;margin:auto}
+.cap,h2,h3,.btn,.cd span{font-family:var(--f1);font-weight:400;text-transform:uppercase}
+.cap{font-size:12px;letter-spacing:.3em;color:var(--sage)}
+h2{font-size:14px;letter-spacing:.35em;margin-bottom:34px}
+h2::after{content:"✦";display:block;color:var(--gold);font-size:11px;margin-top:10px}
+.script{font-family:var(--f3)}
+/* печать */
+#seal{position:fixed;inset:0;z-index:20;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity 1s}
+#seal.go{opacity:0;pointer-events:none}
+#sealBtn{width:132px;height:132px;border-radius:50%;border:0;color:#fff;font:44px var(--f3);cursor:pointer;background:radial-gradient(circle at 35% 30%,#eaa9a3,#c4686a);box-shadow:0 8px 24px rgba(160,70,70,.35),inset 0 0 0 6px rgba(255,255,255,.18);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:90px}
+.hero>*{position:relative;z-index:1}
+.arch{position:absolute!important;inset:40px 20px 20px;width:calc(100% - 40px);height:calc(100% - 60px);pointer-events:none;z-index:0!important}
+.arch path{fill:none;stroke:var(--sage);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.5s ease forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.names{font-size:clamp(46px,14vw,80px);line-height:1.05;margin:20px 0 14px;font-weight:400}
+.names .amp{display:block;font-size:.5em;color:var(--gold)}
+#forwho{display:none;margin-bottom:6px}#forwho .script{font-size:30px;color:var(--rose2)}
+.rise{opacity:0;transform:translateY(18px);animation:rise 1.2s ease forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s}
+.reveal.on{opacity:1;transform:none}
+.scroll{position:absolute!important;bottom:26px;color:var(--sage);animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+.fl{position:absolute;pointer-events:none;width:min(46vw,230px);z-index:0;will-change:transform}
+.fl.tl{top:0;left:0;transform-origin:0 0;animation:sA 7s ease-in-out infinite alternate}
+.fl.br{bottom:0;right:0;transform-origin:100% 100%;transform:rotate(180deg);animation:sB 7s ease-in-out infinite alternate}
+@keyframes sA{from{transform:rotate(-1.5deg)}to{transform:rotate(2deg)}}
+@keyframes sB{from{transform:rotate(178.5deg)}to{transform:rotate(182deg)}}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+.p{position:absolute;top:-30px;background:var(--rose);border-radius:80% 0 80% 0;opacity:.75;will-change:transform;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(var(--r))}}
+/* блоки */
+.cd{display:flex;justify-content:center;gap:12px}
+.cd div{background:var(--card);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);border-radius:60px 60px 14px 14px;width:76px;padding:16px 0 10px}
+.cd b{display:block;font:30px var(--f1)}.cd span{font-size:10px;letter-spacing:.18em;color:var(--sage)}
+.grid{display:grid;gap:32px}
+.ic{font-size:26px;color:var(--gold)}
+h3{font-size:12px;letter-spacing:.3em;color:var(--sage);margin:6px 0 4px}
+.item p{font-size:22px}small{display:block;font-style:italic;opacity:.75;font-size:17px}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.tl2{position:relative;display:grid;gap:28px;text-align:left;padding-left:34px;max-width:360px;margin:auto}
+.tl2::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:var(--gold);transform-origin:top;transform:scaleY(0);transition:transform 2s ease}
+.tl2.on::before{transform:scaleY(1)}
+.st{position:relative}.st::before{content:"";position:absolute;left:-31px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--rose2)}
+.st b{font:400 25px var(--f1);margin-right:10px}
+.dress{background:var(--card);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:140px 140px 24px 24px;padding:54px 24px 34px}
+.sw{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.sw i{width:34px;height:34px;border-radius:50%;border:3px solid var(--card);outline:1px solid var(--gold)}
+.small{display:grid;gap:18px;text-align:left;max-width:420px;margin:auto}
+.small p::first-line{font-family:var(--f1);letter-spacing:.05em}
+/* форма */
+input{width:100%;padding:13px;margin-top:12px;background:var(--card);border:1px solid var(--gold);border-radius:30px;font:inherit;color:var(--ink);text-align:center}
+.btn{font-size:13px;letter-spacing:.18em;padding:13px 22px;border-radius:40px;border:1px solid var(--sage);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block;transition:background .3s,color .3s}
+.btn.sel,.btn:hover{background:var(--sage);color:#fff}
+.btn.send{background:var(--sage);color:#fff;margin-top:22px}
+#guests,#thanks,#gen{display:none}
+#seats{font-style:italic;color:var(--rose2);margin-top:14px}
+#thanks{font-size:28px}
+.heart{display:inline-block;color:var(--rose2);animation:pulse 1.4s infinite}
+footer{padding:50px 24px 70px}footer .script{font-size:34px;color:var(--sage)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<g id="bl"><g fill="#f3cfcb" stroke="#d98f8b" stroke-width=".8"><ellipse cy="-13" rx="8" ry="13"/><ellipse cy="-13" rx="8" ry="13" transform="rotate(72)"/><ellipse cy="-13" rx="8" ry="13" transform="rotate(144)"/><ellipse cy="-13" rx="8" ry="13" transform="rotate(216)"/><ellipse cy="-13" rx="8" ry="13" transform="rotate(288)"/></g><circle r="4" fill="#d98f8b"/></g>
+<path id="lf" d="M0 0C10-14 28-14 36 0 28 14 10 14 0 0Z" fill="#9aa876" opacity=".85"/>
+<g id="branch"><path d="M0 0C60 30 90 90 80 200" fill="none" stroke="#7c8a5c" stroke-width="2"/>
+<use href="#lf" transform="translate(30 30) rotate(40)"/><use href="#lf" transform="translate(62 80) rotate(100)"/><use href="#lf" transform="translate(80 140) rotate(-60) scale(.8)"/>
+<use href="#bl" transform="translate(22 14) scale(1.3)"/><use href="#bl" transform="translate(70 70)"/><use href="#bl" transform="translate(82 150) scale(.8)"/><use href="#bl" transform="translate(100 205) scale(.55)"/></g>
+</defs></svg>
+<div id="petals"></div>
+
+<div id="seal"><button id="sealBtn" aria-label="Открыть приглашение">А&М</button><div class="cap">Нажмите, чтобы открыть</div></div>
+
+<section class="hero">
+  <svg class="arch" viewBox="0 0 400 700" preserveAspectRatio="none"><path d="M10 700V230C10 100 100 10 200 10S390 100 390 230V700"/></svg>
+  <svg class="fl tl" viewBox="0 0 200 240"><use href="#branch"/></svg>
+  <svg class="fl br" viewBox="0 0 200 240"><use href="#branch"/></svg>
+  <div id="forwho" class="rise" style="animation-delay:.6s"><div class="cap">Приглашение для</div><div class="script" id="who"></div></div>
+  <div id="cap0" class="cap rise" style="animation-delay:.8s">С огромной радостью приглашаем вас</div>
+  <h1 class="names script rise" style="animation-delay:1.2s">Анна<span class="amp">&</span>Михаил</h1>
+  <div class="cap rise" style="animation-delay:1.8s;font-size:15px;color:var(--ink)">18 сентября 2027</div>
+  <div class="cap rise" style="animation-delay:2.1s;margin-top:6px">Озеро Комо · Италия</div>
+  <p class="rise" style="animation-delay:2.5s;margin-top:24px;font-style:italic;color:var(--sage)">Мир добрее, когда ты рядом</p>
+  <div class="scroll">⌄</div>
+</section>
+
+<section class="reveal"><h2>До нашего дня</h2>
+  <div class="cd"><div><b id="d">0</b><span>дней</span></div><div><b id="h">0</b><span>часов</span></div><div><b id="m">0</b><span>минут</span></div><div><b id="s">0</b><span>секунд</span></div></div>
+</section>
+
+<section class="reveal"><h2>Детали</h2>
+  <div class="grid">
+    <div class="item"><div class="ic">⌖</div><h3>Место</h3><p>Озеро Комо, Италия<small>Место, где хочется остаться навсегда</small></p></div>
+    <div class="item"><div class="ic">∞</div><h3>Дата</h3><p>18 сентября 2027<small>Сохраните этот день для нас</small></p></div>
+    <div class="item"><div class="ic">❦</div><h3>Церемония и банкет</h3><p>Вилла «Серенита»<small>Любовь, близкие люди и красивый вид</small></p></div>
+  </div>
+  <div class="row"><a class="btn" id="cal" download="wedding.ics" href="#">В календарь</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Villa+Serenita+Lake+Como">Как добраться</a></div>
+</section>
+
+<section class="reveal"><h2>Программа дня</h2>
+  <div class="tl2" id="tl">
+    <div class="st"><b>16:00</b><i>Церемония</i></div>
+    <div class="st"><b>17:00</b><i>Welcome-фуршет</i></div>
+    <div class="st"><b>19:00</b><i>Праздничный ужин</i></div>
+    <div class="st"><b>21:00</b><i>Танцы под звёздами</i></div>
+  </div>
+</section>
+
+<section class="reveal"><div class="dress"><h2>Дресс-код</h2>
+  <p class="cap" style="font-size:18px;color:var(--ink)">Садовая элегантность</p>
+  <p style="font-style:italic;opacity:.8;margin-top:8px">Светлые тона, натуральные ткани<br>и немного итальянского романса</p>
+  <div class="sw"><i style="background:#f6efe2"></i><i style="background:#e8b9b4"></i><i style="background:#c9d2ad"></i><i style="background:#9aa876"></i><i style="background:#d9c7a0"></i></div></div>
+</section>
+
+<section class="reveal"><h2>Приятные мелочи</h2>
+  <div class="small">
+    <p>Подарки. Лучший подарок для нас — ваше присутствие. Если захотите порадовать, мы будем благодарны конверту.</p>
+    <p>Дети. Мы будем рады малышам, для них подготовим отдельный уголок.</p>
+    <p>Меню. Если у вас есть аллергии или особенные предпочтения, напишите об этом в ответе.</p>
+  </div>
+</section>
+
+<section class="reveal"><h2>Ждём ваш ответ</h2>
+  <p>Пожалуйста, подтвердите присутствие до 1 июня.</p>
+  <p id="seats"></p>
+  <div id="form">
+    <input id="name" placeholder="Ваше имя" maxlength="60">
+    <div class="row" style="margin-top:16px"><button class="btn" data-a="yes">С радостью приду</button><button class="btn" data-a="no">Не смогу</button></div>
+    <div id="guests"><div class="row"><button class="btn" data-g="solo">Один / Одна</button><button class="btn" data-g="plus">+1</button><button class="btn" data-g="family">Всей семьёй</button></div>
+    <input id="gi" placeholder="" maxlength="90" style="display:none"></div>
+    <input id="al" placeholder="Аллергии, пожелания (по желанию)" maxlength="120">
+    <button class="btn send" id="send">Отправить</button>
+    <p style="font-size:15px;font-style:italic;opacity:.75;margin-top:12px">Откроется Telegram с готовым сообщением, нажмите там «отправить»</p>
+  </div>
+  <div id="thanks" class="script"></div>
+</section>
+
+<section id="gen"><h2>Ссылка для гостя</h2>
+  <input id="gn" placeholder="Кому: например, семье Семёновых"><input id="gk" type="number" min="1" placeholder="Сколько мест (1, 2, 4…)">
+  <button class="btn send" id="gb">Создать ссылку</button><input id="gl" readonly placeholder="Здесь появится ссылка">
+</section>
+
+<footer class="reveal"><div class="script" id="heartBtn">Добрые люди — светлые дни</div>
+  <p class="cap" style="margin-top:14px">Анна & Михаил · 18.09.2027</p></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const q=new URLSearchParams(location.search), to=(q.get('to')||'').trim(), n=parseInt(q.get('n'))||0;
+// появление при скролле (один раз)
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal,#tl').forEach(el=>io.observe(el));
+// лепестки (не более 8, пауза когда вкладка скрыта)
+const box=$('petals');
+function petal(){if(document.hidden||box.childElementCount>8)return;const p=document.createElement('i'),w=9+Math.random()*8;p.className='p';
+p.style.cssText='left:'+Math.random()*100+'vw;width:'+w+'px;height:'+w*1.3+'px;animation-duration:'+(9+Math.random()*7)+'s;--dx:'+(Math.random()*160-80)+'px;--r:'+(Math.random()*720)+'deg';
+box.appendChild(p);setTimeout(()=>p.remove(),17000)}
+let pt;
+$('sealBtn').onclick=()=>{$('seal').classList.add('go');document.body.classList.add('open');setTimeout(()=>$('seal').remove(),1000);
+for(let i=0;i<5;i++)setTimeout(petal,i*300);pt=setInterval(petal,2200)};
+$('heartBtn').onclick=()=>{for(let i=0;i<6;i++)setTimeout(petal,i*100)};
+// таймер
+const target=new Date('2027-09-18T16:00:00');
+function tick(){const t=Math.max(0,target-new Date());d.textContent=Math.floor(t/864e5);h.textContent=Math.floor(t/36e5)%24;m.textContent=Math.floor(t/6e4)%60;s.textContent=Math.floor(t/1e3)%60}
+tick();setInterval(()=>{if(!document.hidden)tick()},1000);
+// календарь
+$('cal').href='data:text/calendar;charset=utf8,'+encodeURIComponent('BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:20270918T160000\nDTEND:20270918T235900\nSUMMARY:Свадьба Анны и Михаила\nLOCATION:Вилла Серенита, озеро Комо\nEND:VEVENT\nEND:VCALENDAR');
+// персональная ссылка
+if(to){$('forwho').style.display='block';$('who').textContent=to;$('cap0').style.display='none';$('name').value=to}
+if(n){$('seats').textContent=n===1?'Мы приготовили место специально для вас':n===2?'Мы приготовили два места — приходите вместе':'Мы приготовили мест: '+n+' — приходите всей семьёй'}
+else $('seats').textContent='Если вы приглашены с парой или всей семьёй, отметьте это в ответе';
+// форма
+let a=null,g='solo';const hints={plus:'Имя вашего спутника или спутницы',family:'Например: семья Семёновых, 4 человека'};
+function setG(v){g=v;document.querySelectorAll('[data-g]').forEach(x=>x.classList.toggle('sel',x.dataset.g===v));const i=$('gi');i.style.display=v==='solo'?'none':'block';i.placeholder=hints[v]||''}
+document.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{a=b.dataset.a;document.querySelectorAll('[data-a]').forEach(x=>x.classList.toggle('sel',x===b));$('guests').style.display=a==='yes'?'block':'none';if(a==='yes')setG(n>2?'family':n===2?'plus':g)});
+document.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>setG(b.dataset.g));
+$('send').onclick=()=>{
+const nm=$('name').value.trim();if(!nm||!a){$('name').placeholder='Введите имя и выберите ответ';return}
+let msg;
+if(a==='yes'){msg='💌 '+nm+': с радостью буду на вашей свадьбе';const gi=$('gi').value.trim();
+if(g==='plus')msg+='\n+1: '+(gi||'без имени');if(g==='family')msg+='\nВсей семьёй: '+(gi||'уточню позже');
+const al=$('al').value.trim();if(al)msg+='\nПожелания: '+al}
+else msg='💔 '+nm+': к сожалению, не смогу прийти';
+const url='https://t.me/plnxxxx?text='+encodeURIComponent(msg);
+$('form').style.display='none';const t=$('thanks');t.style.display='block';
+t.innerHTML=(a==='yes'?'Спасибо! Ждём вас':'Жаль, что не получится. Обнимаем')+' <span class="heart">♥</span><br><a class="btn send" style="font-size:13px" target="_blank" rel="noopener" href="'+url+'">Отправить ответ в Telegram</a><p style="font:italic 16px var(--f2);opacity:.8;margin-top:12px">Нажмите «отправить» в Telegram, чтобы ответ дошёл до нас</p>';
+window.open(url,'_blank');if(a==='yes')for(let i=0;i<8;i++)setTimeout(petal,i*120)};
+// генератор ссылок: добавьте ?gen к адресу сайта
+if(q.has('gen')){$('gen').style.display='block';$('gb').onclick=()=>{const l=location.origin+location.pathname+'?to='+encodeURIComponent($('gn').value.trim())+'&n='+(parseInt($('gk').value)||1);$('gl').value=l;$('gl').select();try{navigator.clipboard.writeText(l)}catch(e){}}}
+</script>
+</body>
+</html>
